@@ -11,6 +11,10 @@ import java.time.LocalDateTime;
 
 
 @Entity
+// It connects your entity to a listener class
+// that runs automatically on certain events.
+// And automatically fills fields like:
+// (@CreatedDate, @LastModifiedDate, @CreatedBy, @LastModifiedBy)
 @EntityListeners(AuditingEntityListener.class)
 @Getter
 @Setter
@@ -20,9 +24,8 @@ import java.time.LocalDateTime;
 public class Review {
 
     @Id// this annotation makes the id property a primary key of our tables
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE) //identity means auto generation
     private Long id;
-
     private String content;
 
     @Column(nullable = false)
@@ -33,6 +36,6 @@ public class Review {
     private LocalDateTime createdAt;
 
     @Column(nullable = false)
-    @LastModifiedDate
+    @LastModifiedDate// this annotation tells spring that handle only object creation
     private LocalDateTime updatedAt;
 }
