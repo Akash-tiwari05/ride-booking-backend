@@ -1,11 +1,11 @@
 <h1>🚗 Ride Booking Application – Backend</h1>
-📌 Project Overview
+<h3>📌 Project Overview </h3>
 
 This is a Backend Ride Booking Application built using Spring Boot with a Microservices Architecture.
 
 Currently, the main focus is on developing and improving the Review Microservice, which handles ride-related feedback and ratings.
 
-🏗️ Architecture
+<h3>🏗️ Architecture</h3>
 
 The system follows a Microservices Architecture, where each service is independent and communicates via REST APIs.
 
