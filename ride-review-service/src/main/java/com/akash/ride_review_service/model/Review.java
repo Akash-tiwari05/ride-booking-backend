@@ -15,27 +15,16 @@ import java.time.LocalDateTime;
 // that runs automatically on certain events.
 // And automatically fills fields like:
 // (@CreatedDate, @LastModifiedDate, @CreatedBy, @LastModifiedBy)
-@EntityListeners(AuditingEntityListener.class)
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class Review {
+public class Review extends BaseModel {
 
-    @Id// this annotation makes the id property a primary key of our tables
-    @GeneratedValue(strategy = GenerationType.SEQUENCE) //identity means auto generation
-    private Long id;
     private String content;
 
     @Column(nullable = false)
     private double rating;
 
-    @Column(nullable = false, updatable = false)
-    @CreatedDate// this annotation tells spring that handle only object creation
-    private LocalDateTime createdAt;
-
-    @Column(nullable = false)
-    @LastModifiedDate// this annotation tells spring that handle only object creation
-    private LocalDateTime updatedAt;
 }
