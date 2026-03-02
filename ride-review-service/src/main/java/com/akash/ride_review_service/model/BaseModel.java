@@ -9,15 +9,16 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.time.LocalDateTime;
 
-
-@EntityListeners(AuditingEntityListener.class)
 @MappedSuperclass
-@Getter
-@Setter
+// It connects your entity to a listener class
+// that runs automatically on certain events.
+// And automatically fills fields like:
+// (@CreatedDate, @LastModifiedDate, @CreatedBy, @LastModifiedBy)
+@EntityListeners(AuditingEntityListener.class)
 public abstract class BaseModel {
 
     @Id// this annotation makes the id property a primary key of our tables
-    @GeneratedValue(strategy = GenerationType.SEQUENCE) //identity means auto generation
+    @GeneratedValue(strategy = GenerationType.IDENTITY) //identity means auto generation
     protected Long id;
 
     @Column(nullable = false, updatable = false)
