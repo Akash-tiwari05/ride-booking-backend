@@ -2,6 +2,7 @@ package com.akash.ride_review_service.model;
 
 import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.annotations.ManyToAny;
 
 import java.time.LocalDateTime;
 
@@ -25,4 +26,9 @@ public class Booking extends BaseModel {
     @OneToOne(fetch = FetchType.LAZY,cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
     private Review review;//we define 1:1 relationship btw booking and review
 
+    @ManyToOne
+    private Driver driver;
+
+    @ManyToOne
+    private Passenger passenger;
 }
