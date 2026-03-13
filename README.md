@@ -76,19 +76,6 @@ PUT	/reviews/{id}	Update review
 DELETE	/reviews/{id}	Delete review
 🗄️ Database Configuration
 
-Configured in application.yml:
-
-spring:
-  datasource:
-    url: jdbc:mysql://localhost:3306/ride_db
-    username: root
-    password: password
-  jpa:
-    hibernate:
-      ddl-auto: update
-    show-sql: true
-🚀 How to Run
-
 Clone the repository
 
 Configure MySQL database
