@@ -3,6 +3,7 @@ package com.akash.ride_review_service.model;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.OneToMany;
 import lombok.*;
 
@@ -20,9 +21,9 @@ public class Driver extends BaseModel{
     private String name;
 
     @Column(nullable = false,unique = true)
-    private String drivingLicense;
+    private String licenseNumber;
 
     //1: n, Diver : Booking
-    @OneToMany(mappedBy = "driver")
+    @OneToMany(mappedBy = "driver", fetch = FetchType.LAZY)
     private List<Booking> bookings = new ArrayList<>();
 }
